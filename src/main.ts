@@ -1,5 +1,5 @@
 import * as core from '@actions/core'
-import * as tc from '@actions//tool-cache'
+import * as tc from '@actions/tool-cache'
 import * as path from 'path'
 
 const TOOL_NAME = 'cosmocc'

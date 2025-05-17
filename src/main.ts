@@ -9,7 +9,7 @@ async function run(): Promise<void> {
   try {
     const version = core.getInput('version')
     const cacheKey = version || 'current'
-    core.info(`Setting up cosmocc${version ? ` version ${version}` : ' (latest)'}`)
+    core.info(`Setting up cosmocc${version ? ` version ${version}` : ' (current)'}`)
     let toolDir = tc.find(TOOL_NAME, cacheKey)
     if (toolDir) {
       core.info(`Found cached cosmocc at ${toolDir}`)
@@ -28,18 +28,13 @@ async function run(): Promise<void> {
 async function downloadAndCache(version: string, cacheKey: string): Promise<string> {
   const filename = version ? `cosmocc-${version}.zip` : 'cosmocc.zip'
   const downloadUrl = `${BASE_URL}/${filename}`
-
   core.info(`Downloading cosmocc from ${downloadUrl}`)
-
   const downloadPath = await tc.downloadTool(downloadUrl)
   core.info(`Downloaded to ${downloadPath}`)
-
   const extractPath = await tc.extractZip(downloadPath)
   core.info(`Extracted to ${extractPath}`)
-
   const cachedDir = await tc.cacheDir(extractPath, TOOL_NAME, cacheKey)
   core.info(`Cached cosmocc at ${cachedDir}`)
-
   return cachedDir
 }
 

@@ -1,15 +1,16 @@
-# setup-cosmocc
+# Setup Cosmocc GitHub Action
 
-To install dependencies:
+A GitHub action to download and setup the [cosmocc](https://github.com/jart/cosmopolitan) toolchain for use in your workflows.
 
-```bash
-bun install
+## Usage
+
+```yaml
+- name: Setup Cosmocc
+  uses: mrdomino/setup-cosmocc@v1
+
+# Or with a specific version
+- name: Setup Cosmocc
+  uses: mrdomino/setup-cosmocc@v1
+  with:
+    version: 4.0.2
 ```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.12. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.

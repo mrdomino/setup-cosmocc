@@ -4,6 +4,8 @@ A GitHub action to download and setup the [cosmocc](https://github.com/jart/cosm
 
 ## Usage
 
+Put a step like this in your GitHub workflow:
+
 ```yaml
 - name: Setup Cosmocc
   uses: mrdomino/setup-cosmocc@v1
@@ -14,3 +16,5 @@ A GitHub action to download and setup the [cosmocc](https://github.com/jart/cosm
   with:
     version: 4.0.2
 ```
+
+Then, you ought to be able to do things like `CC=cosmocc CXX=cosmoc++ make`.
